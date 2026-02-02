@@ -11,6 +11,10 @@ export class ActorService {
     private readonly actorRepository: Repository<ActorEntity>,
   ) {}
 
+  async findAll(): Promise<ActorEntity[]> {
+    return this.actorRepository.find();
+  }
+
   async create(dto: CreateActorDto): Promise<ActorEntity> {
     const { name } = dto;
 

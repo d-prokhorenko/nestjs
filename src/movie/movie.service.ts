@@ -25,6 +25,7 @@ export class MovieService {
       order: {
         createdAt: 'desc',
       },
+      relations: ['actors', 'reviews'],
     });
   }
 
