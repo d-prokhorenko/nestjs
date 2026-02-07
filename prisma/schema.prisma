@@ -8,13 +8,13 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
+model Message {
   id         String   @id @default(uuid())
-  email      String   @unique
-  password   String
-  name       String
+
+  text String
+
   createdAt  DateTime @default(now()) @map("created_at")
   updateddAt DateTime @updatedAt @map("updated_at")
 
-  @@map("users")
+  @@map("messages")
 }
