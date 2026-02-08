@@ -7,11 +7,3 @@ datasource db {
   provider = "postgresql"
 }
 
-model Artist {
-  id         String   @id @default(uuid())
-
-  name String
-  genre String
-
-  @@map("artists")
-}
