@@ -4,12 +4,17 @@ import { ValidationPipe, VersioningType } from '@nestjs/common';
 
 import cookieParser from 'cookie-parser';
 import { ConfigService } from '@nestjs/config';
+import { CustomLogger } from './common/logger/logger.service';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    bufferLogs: true,
+  });
   const config = app.get(ConfigService);
 
   app.use(cookieParser());
+
+  app.useLogger(new CustomLogger());
 
   app.useGlobalPipes(new ValidationPipe());
 
