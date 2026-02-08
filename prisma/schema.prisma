@@ -1,20 +1,17 @@
 generator client {
-  provider     = "prisma-client"
+  provider     = "prisma-client-js"
   output = "./generated/client"
-  moduleFormat = "cjs"
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-model Message {
+model Artist {
   id         String   @id @default(uuid())
 
-  text String
+  name String
+  genre String
 
-  createdAt  DateTime @default(now()) @map("created_at")
-  updateddAt DateTime @updatedAt @map("updated_at")
-
-  @@map("messages")
+  @@map("artists")
 }
