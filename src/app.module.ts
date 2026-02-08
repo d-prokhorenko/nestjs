@@ -7,6 +7,7 @@ import { SpotifyModule } from './spotify/spotify.module';
 import { getSpotifyConfig } from './config/spotify.config';
 import { FileModule } from './file/file.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TaskModule } from './task/task.module';
 import path from 'node:path';
 
 @Module({
@@ -25,6 +26,7 @@ import path from 'node:path';
       rootPath: path.join(__dirname, '..', 'uploads'),
       serveRoot: '/static',
     }),
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],
